@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from sklearn.model_selection import train_test_split
 import logging
-import yaml
+import yaml # for reading yaml files
 
 
 # Ensure the "logs" directory exists
@@ -27,7 +27,10 @@ file_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
-def load_params(params_path: str) -> dict:
+#################################################
+#          Load Parameters Function
+#####################################################
+def load_params(params_path: str) -> dict: 
     """Load parameters from a YAML file."""
     try:
         with open(params_path, 'r') as file:
@@ -85,9 +88,9 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
 
 def main():
     try:
-        # params = load_params(params_path='params.yaml')
-        # test_size = params['data_ingestion']['test_size']
-        test_size = 0.2
+        params = load_params(params_path='params.yaml')
+        test_size = params['data_ingestion']['test_size']
+        #est_size = 0.2
         #https://raw.githubusercontent.com/VikasRathod314/End-to-End-ML-Projects-CICD/refs/heads/main/spam.csv
         data_path = 'https://raw.githubusercontent.com/VikasRathod314/End-to-End-ML-Projects-CICD/refs/heads/main/spam.csv'
         
