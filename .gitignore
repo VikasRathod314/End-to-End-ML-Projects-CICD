@@ -211,3 +211,5 @@ models/
 data/
 reports/
 venv/
+src/data/raw/
+src/data/processed/
