@@ -7,22 +7,21 @@ import yaml
 
 # Ensure the "logs" directory exists
 log_dir = 'logs'
-os.makedirs(log_dir, exist_ok=True)
+os.makedirs(log_dir, exist_ok=True) # check log dir is already there or not and create logs new directory
 
 
 # logging configuration
 logger = logging.getLogger('data_ingestion')
-logger.setLevel('DEBUG')
+logger.setLevel('DEBUG') # `DEBUG` level will capture all types of logs line by line all
 
 console_handler = logging.StreamHandler()
-console_handler.setLevel('DEBUG')
+console_handler.setLevel('DEBUG') # console handler for logging in console/terminal
 
-log_file_path = os.path.join(log_dir, 'data_ingestion.log')
-file_handler = logging.FileHandler(log_file_path)
-file_handler.setLevel('DEBUG')
-
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-console_handler.setFormatter(formatter)
+log_file_path = os.path.join(log_dir, 'data_ingestion.log') # log file path
+file_handler = logging.FileHandler(log_file_path) # file handler for logging in file
+file_handler.setLevel('DEBUG') # file handler for logging in file
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s') # log format
+console_handler.setFormatter(formatter) #
 file_handler.setFormatter(formatter)
 
 logger.addHandler(console_handler)
