@@ -213,3 +213,4 @@ reports/
 venv/
 src/data/raw/
 src/data/processed/
+/.env
