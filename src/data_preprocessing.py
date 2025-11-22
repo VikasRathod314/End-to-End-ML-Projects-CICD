@@ -50,6 +50,7 @@ logger.addHandler(file_handler)
 
 def transform_text(text):
     """
+    Docstring:
     Transforms the input text by converting it to lowercase, tokenizing,
     removing stopwords and punctuation, and applying stemming.
     """
@@ -112,7 +113,7 @@ def main(text_column='text', target_column='target'):
         test_data = pd.read_csv('./data/raw/test.csv')
         logger.debug('Data loaded properly')
 
-        # Transform the data
+        # Transform the data on test and train datasets
         train_processed_data = preprocess_df(train_data, text_column, target_column)
         test_processed_data = preprocess_df(test_data, text_column, target_column)
 

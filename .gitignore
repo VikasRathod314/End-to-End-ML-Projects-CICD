@@ -206,3 +206,8 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 nltk_data/
+logs/
+models/
+data/
+reports/
+venv/

@@ -66,7 +66,7 @@ def load_data(file_path: str) -> pd.DataFrame:
     except Exception as e:
         logger.error('Unexpected error occurred while loading the data: %s', e)
         raise
-
+# type hinting added
 def train_model(X_train: np.ndarray, y_train: np.ndarray, params: dict) -> RandomForestClassifier:
     """
     Train the RandomForest model.
@@ -122,13 +122,13 @@ def main():
         #params = load_params('params.yaml')['model_building']
         params = {'n_estimators': 25, 'random_state': 2}
 
-        train_data = load_data('./data/processed/train_tfidf.csv')
-        X_train = train_data.iloc[:, :-1].values
-        y_train = train_data.iloc[:, -1].values
+        train_data = load_data('./src/data/processed/train_tfidf.csv')
+        X_train = train_data.iloc[:, :-1].values # Features
+        y_train = train_data.iloc[:, -1].values # Labels NLP feature engineering
 
         clf = train_model(X_train, y_train, params)
         
-        model_save_path = 'models/model.pkl'
+        model_save_path = 'models/randomForest_model.pkl'
         save_model(clf, model_save_path)
 
     except Exception as e:

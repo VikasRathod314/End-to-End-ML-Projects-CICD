@@ -114,11 +114,11 @@ def main():
     try:
         #params = load_params(params_path='params.yaml')
         params = {'model_evaluation': {}}
-        clf = load_model('./models/model.pkl')
-        test_data = load_data('./data/processed/test_tfidf.csv')
+        clf = load_model('./models/randomForest_model.pkl')
+        test_data = load_data('./src/data/processed/test_tfidf.csv')
         
-        X_test = test_data.iloc[:, :-1].values
-        y_test = test_data.iloc[:, -1].values
+        X_test = test_data.iloc[:, :-1].values # Features
+        y_test = test_data.iloc[:, -1].values # Labels 
 
         metrics = evaluate_model(clf, X_test, y_test)
         save_metrics(metrics, 'reports/metrics.json')
